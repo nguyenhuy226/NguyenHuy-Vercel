@@ -1,0 +1,18 @@
+// CSS HOMEPAGE
+.homepage {
+    .banner {
+        position: relative;
+        height: 316px;
+    }
+    @include xs {
+        .banner {
+            height: 230px;
+            .present {
+                padding: initial;
+            }
+        }
+        .objects {
+            padding: initial;
+        }
+    }
+}

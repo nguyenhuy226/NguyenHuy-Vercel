@@ -1,0 +1,107 @@
+.studiopage {
+    .studios {
+        .container  {
+            .studio {
+                padding-bottom: 100px;
+                border-bottom: 1px solid $text-cl;
+                .row {
+                    .studio__item {
+                        padding-top: 70px;
+                        &-img {
+                            width: 100%;
+                            display: flex;
+                            position: relative;
+                            overflow: hidden;
+                            height: 300px;
+                            a {
+                                text-decoration: none;
+                                display: block;
+                                img {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    min-width: 100%;
+                                    min-height: 100%;
+                                    object-fit: cover;
+                                    @include transform(translate(-50% ,-50%) scale(1));
+                                    @include transition($t)
+                                }
+                            }
+                            &:hover {
+                                img {
+                                    @include transform(translate(-50% ,-50%) scale(1.08));
+                                    filter: brightness(162%);
+                                    -webkit-filter: brightness(162%);
+                                    -moz-filter: brightness(162%);
+                                    @include transition($t)
+                                }
+                            }
+                        }
+                        &-text{
+                            .textbox {
+                                &__contain {
+                                    @include transition($t);
+                                    &:hover {
+                                        background-color: $gray-cl;
+                                        color: $text-white-cl;
+                                        @include transition($t);
+                                    }
+                                    &:hover img {
+                                        color: $yellow-cl;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            @include xs {
+                .studio {
+                    padding-bottom: 70px;
+                    .row {
+                        .studio__item {
+                            padding-top: 40px;
+                            &-img {
+                                width: 100%;
+                                height: 220px;
+                            }
+                            &-text {
+                                .textbox {
+                                    &__box {
+                                        width: 74px;
+                                        height: 74px;
+                                        &-number {
+                                          font-size: 38.38px;
+                                          line-height: 40px;
+                                        }
+                                        &-text {
+                                            font-size: 12px;
+                                            line-height: 14px;
+                                        }
+                                    }
+                                    &__contain {
+                                        height: 74px;
+                                        .textbox__text {
+                                            padding: 0 40px 0 20px;
+                                            &-des {
+                                                padding: 6px 0 8px 0;
+                                            }
+                                        }
+                                        .textbox__icon {
+                                            &-text {
+                                                display: none;
+                                            }
+                                            &-img {
+                                                @include transform(rotate(-90deg));
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

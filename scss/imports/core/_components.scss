@@ -1,0 +1,271 @@
+// css components
+.objects {
+    padding-top: 48px;
+    .container {
+        padding-bottom: 50px;
+        border-bottom: 1px solid $text-cl;
+    }
+    &__wrap {   
+        .object {
+            &__img {
+                a {
+                    width: 100%;
+                    min-height: 188.98px;
+                    overflow: hidden;
+                    position: relative;
+                    cursor: pointer;
+                    display: block;
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                        @include transform(translate(-50% ,-50%) scale(1));
+                        @include transition($t)
+                    }
+                }
+                &:hover {
+                    img {
+                        @include transform(translate(-50% ,-50%) scale(1.08));
+                        @include transition($t)
+                    }
+                }
+            }
+            &__text {
+                text-align: center;
+                padding-bottom: 70px;
+                &-title {
+                    padding-top: 36px;
+                    @include text(12px , pr , 30.48px ,$text-cl, uppercase);
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 16px;
+                        height: 3px;
+                        background-color: #ffde00;
+                        bottom: 0px;
+                        @include transform(translateX(-50px))
+                    }
+                }
+                &-des {
+                    @include text(12px ,pr, 20px, $text-cl, normal)
+                }
+            }
+        }
+    }
+    &__nav {
+        padding-bottom: 30px;
+        ul {
+            @include text(12px ,pb ,30.48px ,#9a9a9a, uppercase);
+            @include mid(true);
+            li {
+                padding: 0 16px;
+                cursor: pointer;
+                &:hover {
+                    color: $text-cl;
+                }
+            }
+        }
+    }
+    &__foot {
+        text-align: center;
+        &-text {
+            @include text(12px ,pb ,30.48px,$text-cl, uppercase)
+        }
+        &-icon {
+            a {
+                img {
+                    width: 18px;
+                }
+            }
+        }
+    }
+    @include xs {
+        &__nav {
+            display: none;
+            &.inallwork {
+                display: block;
+                ul {
+                    li {
+                        padding: 0 30px;
+                    }
+                }
+            }
+        }
+        .container {
+            .objects__wrap {
+                .object {
+                    &__img {
+                        a {
+                            height: 250px;   
+                        }
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.present {
+    padding: 60px 0 0 0;
+    text-align: center;
+    position: relative;
+    @include mid();
+    width: 100%;
+    &::after {
+        content: "";
+        width: 320px;
+        height: 1px;
+        background-color: $text-black-cl;
+        position: absolute;
+        left: 50%;
+        @include transform(translateX(-50%))
+    }
+    &.incafe {
+        padding: 0;
+        &::after {
+            background-color: $yellow-cl;
+        }
+        .container {
+            .present__first {
+                color: $yellow-cl;
+            }
+            .present__title {
+                color: $yellow-cl;
+                letter-spacing: 6px;
+                &::after {
+                    display: none;
+                }
+            }
+            .present__des {
+                color: $text-white-cl
+            }
+        }
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // position: relative;
+        .present__first {
+            @include text(14px, pr, 22px, $text-cl,uppercase);  
+            width: 80px;
+            // @include mid();
+            padding-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .present__title {
+            margin-bottom: 24px;
+            @include text(20px,pb,30.48px, #525355, uppercase);
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 10;
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: #ffde00;
+                width: 100%;
+                height: 50%;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                @include mid()
+            }
+        }   
+        .present__des {
+            @include text(12px ,pb,22px ,$text-cl,normal);
+            max-width: 760px;
+            margin: 0 auto 50px;
+
+        }
+    }   
+    .present__foot {
+        @include text(14px ,pr,22px ,$text-white-cl,uppercase);
+        letter-spacing: 2px;
+        position: absolute;
+        top: calc(20px + 100%);
+        left: 50%;
+        @include transform(translateX(-50%))
+    }
+    @include xs {
+
+        &.incafe {
+            &::after {
+                display: block;
+                width: 100%;
+            }
+            .container {
+                .present__des {
+                    max-width: 100%;
+                    margin-bottom: 30px;
+                }   
+            }
+        }
+        padding: 60px 0 0 0;
+        &::after {
+            display: none;
+        }
+        .container {
+            .present__des {
+                display: none;
+                &.incafe {
+                    display: block;
+                }
+            }
+            .present__title {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+}
+
+.button__control {
+    display: flex;
+    align-items: center;
+    &-next {
+        display: flex;
+        padding-left: 20px;
+        position: relative;
+        cursor: pointer;
+        .button__control-icon {
+            padding-left: 16px;
+            @include mid(true);
+            img {
+                width: 10px;
+                height: 15px;
+                @include transform(rotate(180deg))
+            }
+        }
+        &::after {
+            content: "";
+            width: 1px;
+            background-color: $text-black-cl;
+            height: calc(100% - 5px);
+            left: -0.5px;
+            top: 50%;
+            @include transform(translateY(-50%));
+            position: absolute;
+        }
+    }
+    &-prev {
+        cursor: pointer;
+        display: flex;
+        padding-right: 20px;
+        .button__control-icon {
+            padding-right: 16px;
+            @include mid(true);
+            img {
+                width: 10px;
+                height: 15px;
+            }
+        }
+    }
+}
